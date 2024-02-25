@@ -1,6 +1,9 @@
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -9,7 +12,7 @@ android {
 
     defaultConfig {
         minSdk = 26
-
+        buildConfigField("String", "NEWS_API_KEY", "\"8c48a0b83a264d378795f5d424c82696\"" )
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -24,15 +27,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
 dependencies {
+
+    implementation(DaggerHilt.hilt)
+    kapt(DaggerHilt.hiltAndroidCompiler)
+    kapt(DaggerHilt.hiltCompiler)
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -40,4 +50,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.okHttp)
+    implementation(Retrofit.gsonConvertor)
 }

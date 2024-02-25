@@ -1,6 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -39,7 +43,12 @@ dependencies {
     implementation(Deps.appCompat)
     implementation(Deps.androidMaterial)
     implementation(Deps.constraintLayout)
+    implementation(project(mapOf("path" to ":common:common_utils")))
     testImplementation(TestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
+
+    implementation(DaggerHilt.hilt)
+    kapt(DaggerHilt.hiltAndroidCompiler)
+    kapt(DaggerHilt.hiltCompiler)
 }

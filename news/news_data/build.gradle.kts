@@ -1,6 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -34,6 +38,9 @@ android {
 
 dependencies {
 
+    implementation(project(":common:common_utils"))
+    implementation(project(":news:news_domain"))
+
     implementation(Deps.core)
     implementation(CoroutinesLifecycleScope.lifeCycleRuntime)
     implementation(Deps.appCompat)
@@ -42,4 +49,12 @@ dependencies {
     testImplementation(TestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
+
+    implementation(DaggerHilt.hilt)
+    kapt(DaggerHilt.hiltAndroidCompiler)
+    kapt(DaggerHilt.hiltCompiler)
+
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.okHttp)
+    implementation(Retrofit.gsonConvertor)
 }
