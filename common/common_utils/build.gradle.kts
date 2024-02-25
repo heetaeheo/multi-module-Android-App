@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.search_presentation"
+    namespace = "com.example.common_utils"
     compileSdk = 33
 
     defaultConfig {
@@ -24,26 +24,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    implementation(project(":common:common_utils"))
 
-    implementation(Deps.core)
-    implementation(CoroutinesLifecycleScope.lifeCycleRuntime)
-    implementation(Deps.appCompat)
-    implementation(Deps.androidMaterial)
-    implementation(Deps.constraintLayout)
+    implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation(TestImplementation.junit)
-    androidTestImplementation(AndroidTestImplementation.junit)
-    androidTestImplementation(AndroidTestImplementation.espresso)
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }

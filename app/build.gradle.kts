@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.example.multimodule"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.multimodule"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -55,6 +55,7 @@ dependencies {
 
     implementation(project(":search:search_presentation"))
     implementation(project(":news:news_presentation"))
+    implementation(project(":common:common_utils"))
 
     implementation(Deps.core)
     implementation(CoroutinesLifecycleScope.lifeCycleRuntime)

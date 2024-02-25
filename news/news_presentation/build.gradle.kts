@@ -34,11 +34,16 @@ android {
 
 dependencies {
 
+    implementation(project(":common:common_utils"))
+
     implementation(Deps.core)
     implementation(CoroutinesLifecycleScope.lifeCycleRuntime)
     implementation(Deps.appCompat)
     implementation(Deps.androidMaterial)
     implementation(Deps.constraintLayout)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation(TestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
