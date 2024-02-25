@@ -1,0 +1,24 @@
+package com.example.news_domain.use_case
+
+import com.example.common_utils.Resource
+import com.example.news_domain.model.Article
+import com.example.news_domain.repository.NewsRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+
+class GetNewsArticleUseCase @Inject constructor(
+    private val newsRepository: NewsRepository
+) {
+    operator fun invoke(): Flow<Resource<List<Article>>> = flow {
+        emit(Resource.Loading())
+        runCatching {
+            newsRepository.getNewsArticle()
+        }.onSuccess {
+            emit(Resource.Success(data = it))
+        }.onFailure {
+            emit(Resource.Error(message = it.message.toString()))
+        }
+    }
+
+}
