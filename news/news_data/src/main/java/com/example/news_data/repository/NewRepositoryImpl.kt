@@ -6,9 +6,9 @@ import com.example.news_domain.repository.NewsRepository
 import toDomainArticle
 import javax.inject.Inject
 
-class NewRepositoryImpl @Inject constructor(
+class NewRepositoryImpl(
     private val newsApiService: NewsApiService
-): NewsRepository {
+) : NewsRepository {
     override suspend fun getNewsArticle(): List<Article> {
         return newsApiService.getNewsArticles().articleDTO.map { it.toDomainArticle() }
     }

@@ -57,6 +57,7 @@ object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val gsonConvertor = "com.squareup.retrofit2:converter-gson:${Versions.gsonConvertor}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+    const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     const val scalersConvertors =
         "com.squareup.retrofit2:converter-scalars:${Versions.scalerConvertor}"
 }
