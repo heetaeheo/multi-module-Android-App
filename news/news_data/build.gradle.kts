@@ -57,4 +57,7 @@ dependencies {
     implementation(Retrofit.retrofit)
     implementation(Retrofit.okHttp)
     implementation(Retrofit.gsonConvertor)
+
+    implementation(Room.room)
+    implementation(Room.roomCompiler)
 }

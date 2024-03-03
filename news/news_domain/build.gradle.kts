@@ -43,7 +43,7 @@ dependencies {
     implementation(Deps.appCompat)
     implementation(Deps.androidMaterial)
     implementation(Deps.constraintLayout)
-    implementation(project(mapOf("path" to ":common:common_utils")))
+    implementation(project(":common:common_utils"))
     testImplementation(TestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
@@ -51,4 +51,7 @@ dependencies {
     implementation(DaggerHilt.hilt)
     kapt(DaggerHilt.hiltAndroidCompiler)
     kapt(DaggerHilt.hiltCompiler)
+
+    implementation(Room.room)
+    implementation(Room.roomCompiler)
 }
