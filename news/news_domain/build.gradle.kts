@@ -51,4 +51,7 @@ dependencies {
     implementation(DaggerHilt.hilt)
     kapt(DaggerHilt.hiltAndroidCompiler)
     kapt(DaggerHilt.hiltCompiler)
+
+    implementation(Room.room)
+    implementation(Room.roomCompiler)
 }
